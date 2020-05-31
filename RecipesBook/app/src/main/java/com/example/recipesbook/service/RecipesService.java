@@ -16,7 +16,7 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 
 public class RecipesService {
-    private static String ApiUrl = "http://192.168.8.200:57806/api";
+    private static String ApiUrl = "http://192.168.1.146:57806/api/";
     private static String RecipesUrl = "recipes";
     private static String RatingsUrl = "ratings";
     private static String UsersUrl = "users";
@@ -29,12 +29,12 @@ public class RecipesService {
     private static String StepIngredientsUrl = "stepIngredients";
 
     // region Recipes
-    public static void GetAllRecipes(Context context, Response.Listener<JSONObject> callback) {
+    public static void GetAllRecipes(Context context, Response.Listener<String> callback) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + RecipesUrl;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {

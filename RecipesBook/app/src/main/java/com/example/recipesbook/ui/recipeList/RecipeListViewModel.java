@@ -38,9 +38,9 @@ public class RecipeListViewModel extends ViewModel {
     }
 
     public void getData(Context context) {
-        RecipesService.GetAllRecipes(context, new Response.Listener<JSONObject>() {
+        RecipesService.GetAllRecipes(context, new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(String response) {
                 recipeList = Recipe.getRecipeList(response.toString());
                 mText.setValue(recipeList.get(0).Title);
             }

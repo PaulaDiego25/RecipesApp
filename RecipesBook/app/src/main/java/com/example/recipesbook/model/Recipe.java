@@ -39,12 +39,12 @@ public class Recipe {
             String Picture = data.getString("Picture");
             boolean IsPublic = data.getBoolean("IsPublic");
             Date creationDate = null;
-            try {
+            /*try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
             creationDate = sdf.parse(data.getString("CreationDate"));
             } catch (ParseException e) {
                 e.printStackTrace();
-            }
+            }*/
 
             this.Id = Id;
             this.Title = Title;
@@ -52,7 +52,7 @@ public class Recipe {
             this.Time = Time;
             this.Picture = Picture;
             this.IsPublic = IsPublic;
-            this.CreationDate = creationDate;
+            //this.CreationDate = creationDate;
         } catch (JSONException e) {
             e.printStackTrace();
         }
