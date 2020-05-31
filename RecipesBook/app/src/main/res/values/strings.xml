@@ -28,7 +28,7 @@
     <string name="recipe_time">Tiempo (en minutos)</string>
     <string name="recipe_is_public">Mostrar la receta publicamente</string>
     <string name="recipe_image">Imagen</string>
-
+    <string name="select_file">Seleccionar imagen</string>
 
 
 </resources>
