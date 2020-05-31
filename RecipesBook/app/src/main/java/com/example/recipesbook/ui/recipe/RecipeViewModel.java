@@ -28,8 +28,8 @@ public class RecipeViewModel extends ViewModel {
             @Override
             public void onResponse(String response) {
                 // Display the first 500 characters of the response string.
-                //recipeTypes = RecipeType(response);
-                //mText.setValue(recipeList.get(0).Title);
+                recipeTypes.setValue(RecipeType.ParseRecipeTypeList(response));
+
             }
 
         });

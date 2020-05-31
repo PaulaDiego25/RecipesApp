@@ -35,11 +35,11 @@ public class RecipeFragment extends Fragment {
             @Override
             public void onChanged(@Nullable ArrayList<RecipeType> s) {
                 //textView.setText(s);
-                String[] lenguajes = {"Seleccione", "Ruby", "Java", ".NET", "Python", "PHP", "JavaScript", "GO"};
+                //String[] lenguajes = {"Seleccione", "Ruby", "Java", ".NET", "Python", "PHP", "JavaScript", "GO"};
 
-                Spinner Slenguajes = (Spinner) getView().findViewById(R.id.recipe_type_spinner);
+                Spinner types_spinner = (Spinner) getView().findViewById(R.id.recipe_type_spinner);
 
-                Slenguajes.setAdapter(new ArrayAdapter<RecipeType>(getContext(), android.R.layout.simple_spinner_dropdown_item, s));
+                types_spinner.setAdapter(new ArrayAdapter<RecipeType>(getContext(), android.R.layout.simple_spinner_dropdown_item, s));
             }
         });
 
