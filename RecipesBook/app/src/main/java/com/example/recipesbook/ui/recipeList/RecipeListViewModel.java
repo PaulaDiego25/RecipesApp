@@ -41,7 +41,7 @@ public class RecipeListViewModel extends ViewModel {
         RecipesService.GetAllRecipes(context, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                recipeList = Recipe.getRecipeList(response.toString());
+                recipeList = Recipe.GetRecipeList(response.toString());
                 mText.setValue(recipeList.get(0).Title);
             }
         });
