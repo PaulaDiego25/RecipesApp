@@ -47,7 +47,7 @@ public class HomeViewModel extends ViewModel {
             @Override
             public void onResponse(String response) {
                 // Display the first 500 characters of the response string.
-                recipeList = Recipe.GetRecipeList(response);
+                recipeList = Recipe.ParseRecipeList(response);
                 mText.setValue(recipeList.get(0).Title);
             }
 
