@@ -45,12 +45,12 @@ public class RecipesService {
         queue.add(request);
     }
 
-    public static void GetRecipe(Context context, Response.Listener<JSONObject> callback, int id) {
+    public static void GetRecipe(Context context, Response.Listener<String> callback, int id) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + RecipesUrl + "/" + id;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -103,13 +103,13 @@ public class RecipesService {
         }
     }
 
-    public static void DeleteRecipe(Context context, Response.Listener<JSONObject> callback, int id) {
+    public static void DeleteRecipe(Context context, Response.Listener<String> callback, int id) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + RecipesUrl + "/" + id;
 
         // Request a string response from the provided URL.
         try {
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE, url, null, callback,
+            StringRequest request = new StringRequest(Request.Method.DELETE, url, callback,
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
@@ -125,12 +125,12 @@ public class RecipesService {
     // endregion
 
     // region Steps
-    public static void GetAllSteps(Context context, Response.Listener<JSONObject> callback) {
+    public static void GetAllSteps(Context context, Response.Listener<String> callback) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + StepsUrl;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -141,12 +141,12 @@ public class RecipesService {
         queue.add(request);
     }
 
-    public static void GetStep(Context context, Response.Listener<JSONObject> callback, int id) {
+    public static void GetStep(Context context, Response.Listener<String> callback, int id) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + StepsUrl + "/" + id;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -199,13 +199,13 @@ public class RecipesService {
         }
     }
 
-    public static void DeleteStep(Context context, Response.Listener<JSONObject> callback, int id) {
+    public static void DeleteStep(Context context, Response.Listener<String> callback, int id) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + StepsUrl + "/" + id;
 
         // Request a string response from the provided URL.
         try {
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE, url, null, callback,
+            StringRequest request = new StringRequest(Request.Method.DELETE, url, callback,
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
@@ -221,12 +221,12 @@ public class RecipesService {
     // endregion
 
     // region Categories
-    public static void GetAllCategories(Context context, Response.Listener<JSONObject> callback) {
+    public static void GetAllCategories(Context context, Response.Listener<String> callback) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + CategoriesUrl;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -237,12 +237,12 @@ public class RecipesService {
         queue.add(request);
     }
 
-    public static void GetCategory(Context context, Response.Listener<JSONObject> callback, int id) {
+    public static void GetCategory(Context context, Response.Listener<String> callback, int id) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + CategoriesUrl + "/" + id;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -255,12 +255,12 @@ public class RecipesService {
     // endregion
 
     // region RecipeTypes
-    public static void GetAllRecipeType(Context context, Response.Listener<JSONObject> callback) {
+    public static void GetAllRecipeType(Context context, Response.Listener<String> callback) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + RecipeTypesUrl;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -271,12 +271,12 @@ public class RecipesService {
         queue.add(request);
     }
 
-    public static void GetRecipeType(Context context, Response.Listener<JSONObject> callback, int id) {
+    public static void GetRecipeType(Context context, Response.Listener<String> callback, int id) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + RecipeTypesUrl + "/" + id;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -289,12 +289,12 @@ public class RecipesService {
     // endregion
 
     // region Ingredients
-    public static void GetIngredients(Context context, Response.Listener<JSONObject> callback) {
+    public static void GetIngredients(Context context, Response.Listener<String> callback) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + IngredientsUrl;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -305,12 +305,12 @@ public class RecipesService {
         queue.add(request);
     }
 
-    public static void GetIngredients(Context context, Response.Listener<JSONObject> callback, int id) {
+    public static void GetIngredients(Context context, Response.Listener<String> callback, int id) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + IngredientsUrl + "/" + id;
 
         // Request a string response from the provided URL.
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, callback,
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
