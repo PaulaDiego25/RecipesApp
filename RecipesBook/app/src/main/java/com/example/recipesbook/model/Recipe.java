@@ -57,7 +57,7 @@ public class Recipe {
     }
 
     public static ArrayList<Recipe> ParseRecipeList(String response){
-        ArrayList<Recipe> recipeList = new ArrayList<Recipe>();
+        ArrayList<Recipe> recipeList = new ArrayList<>();
 
         try {
             JSONArray obj = new JSONArray(response);

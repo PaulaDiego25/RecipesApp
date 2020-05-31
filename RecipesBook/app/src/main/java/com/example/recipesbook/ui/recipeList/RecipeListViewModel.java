@@ -38,12 +38,12 @@ public class RecipeListViewModel extends ViewModel {
     }
 
     public void getData(Context context) {
-        RecipesService.GetAllRecipes(context, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                recipeList = Recipe.ParseRecipeList(response.toString());
-                mText.setValue(recipeList.get(0).Title);
-            }
-        });
+            RecipesService.GetAllRecipes(context, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    recipeList = Recipe.ParseRecipeList(response.toString());
+                    mText.setValue(recipeList.get(0).Title);
+                }
+            });
     }
 }
