@@ -29,8 +29,6 @@ public class Recipe {
     }
 
     public Recipe(JSONObject data){
-
-
         try {
             int Id = data.getInt("Id");
             String Title = data.getString("Title");
@@ -58,8 +56,7 @@ public class Recipe {
         }
     }
 
-
-    public static ArrayList<Recipe> GetRecipeList(String response){
+    public static ArrayList<Recipe> ParseRecipeList(String response){
         ArrayList<Recipe> recipeList = new ArrayList<Recipe>();
 
         try {
@@ -75,6 +72,4 @@ public class Recipe {
         }
         return recipeList;
     }
-
-
 }
