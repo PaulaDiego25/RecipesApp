@@ -22,6 +22,7 @@ public class RecipesService {
     private static String UsersUrl = "users";
     private static String RolesUrl = "roles";
     private static String CategoriesUrl = "categories";
+    private static String CategoriesByRecipeTypeUrl = "CategoriesByRecipeType";
     private static String StepsUrl = "steps";
     private static String UserRecipesUrl = "userRecipes";
     private static String IngredientsUrl = "ingredients";
@@ -247,6 +248,22 @@ public class RecipesService {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.println(Log.ERROR, "GetCategory", error.toString());
+                    }
+                });
+        // Add the request to the RequestQueue.
+        queue.add(request);
+    }
+
+    public static void GetCategoriesByRecipeType(Context context, Response.Listener<String> callback, int recipeTypeId) {
+        RequestQueue queue = Volley.newRequestQueue(context);
+        String url = ApiUrl + CategoriesByRecipeTypeUrl + "/" + recipeTypeId;
+
+        // Request a string response from the provided URL.
+        StringRequest request = new StringRequest(Request.Method.GET, url, callback,
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.println(Log.ERROR, "GetCategoriesByRecipe", error.toString());
                     }
                 });
         // Add the request to the RequestQueue.
