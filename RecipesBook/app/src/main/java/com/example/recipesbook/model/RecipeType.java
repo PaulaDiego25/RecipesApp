@@ -42,4 +42,9 @@ public class RecipeType {
         }
         return list;
     }
+
+    @Override
+    public String toString() {
+        return Title;
+    }
 }

@@ -272,7 +272,7 @@ public class RecipesService {
     // endregion
 
     // region RecipeTypes
-    public static void GetAllRecipeType(Context context, Response.Listener<String> callback) {
+    public static void GetAllRecipeTypes(Context context, Response.Listener<String> callback) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = ApiUrl + RecipeTypesUrl;
 
@@ -281,7 +281,7 @@ public class RecipesService {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.println(Log.ERROR, "GetAllRecipeType", error.toString());
+                        Log.println(Log.ERROR, "GetAllRecipeTypes", error.toString());
                     }
                 });
         // Add the request to the RequestQueue.
