@@ -45,4 +45,9 @@ public class Category {
         }
         return list;
     }
+
+    @Override
+    public String toString() {
+        return Title;
+    }
 }

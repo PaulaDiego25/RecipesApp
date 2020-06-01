@@ -3,11 +3,15 @@ package com.example.recipesbook;
 import android.os.Bundle;
 
 import com.android.volley.VolleyError;
+import com.example.recipesbook.ui.recipe.RecipeFragment;
+import com.example.recipesbook.ui.step.StepFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,7 +28,29 @@ import android.view.Menu;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private AppBarConfiguration mAppBarConfiguration;
+    private Fragment fragment;
+
+    /*@Override
+    public void changeFragment(int id){
+        FragmentTransaction ft;
+        switch (id){
+            case 1:
+                fragment = new RecipeFragment();
+                ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.nav_host_fragment, fragment);
+                ft.commit();
+                break;
+            case 2:
+                fragment = new StepFragment();
+                ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.nav_host_fragment, fragment);
+                ft.commit();
+                break;
+        }
+
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

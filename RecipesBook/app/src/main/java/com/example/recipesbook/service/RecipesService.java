@@ -258,7 +258,7 @@ public class RecipesService {
 
     public static void GetCategoriesByRecipeType(Context context, Response.Listener<String> callback, int recipeTypeId) {
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = ApiUrl + CategoriesByRecipeTypeUrl + "/" + recipeTypeId;
+        String url = ApiUrl + CategoriesByRecipeTypeUrl + "?id=" + recipeTypeId;
 
         // Request a string response from the provided URL.
         StringRequest request = new StringRequest(Request.Method.GET, url, callback,

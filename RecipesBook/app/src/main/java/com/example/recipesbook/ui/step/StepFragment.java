@@ -21,6 +21,15 @@ import java.util.ArrayList;
 public class StepFragment extends Fragment {
 
     private StepViewModel stepViewModel;
+    private int data;
+
+    public StepFragment() {
+
+    }
+
+    public StepFragment(int data) {
+        this.data = data;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
