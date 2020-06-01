@@ -16,7 +16,9 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 
 public class RecipesService {
-    private static String ApiUrl = "http://192.168.1.146:57806/api/";
+    //private static String ApiUrl = "http://192.168.1.146:57806/api/";
+    private static String ApiUrl = "http://192.168.8.200:57806/api/";
+
     private static String RecipesUrl = "recipes";
     private static String RatingsUrl = "ratings";
     private static String UsersUrl = "users";
@@ -53,7 +55,7 @@ public class RecipesService {
         StringRequest request = new StringRequest(Request.Method.GET, url, callback,
                 new Response.ErrorListener() {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
+                    public void onErrorResponse(VolleyError error) { 
                         Log.println(Log.ERROR, "GetRecipe", error.toString());
                     }
                 });

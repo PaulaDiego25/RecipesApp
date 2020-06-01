@@ -31,4 +31,10 @@
     <string name="select_file">Seleccionar imagen</string>
 
 
+    <string name="ingredients">Ingredientes</string>
+    <string name="ingredient_name">Nombre</string>
+    <string name="ingredient_quantity">Cantidad</string>
+    <string name="ingredient_add">Añadir</string>
+
+
 </resources>
