@@ -12,6 +12,10 @@ public class Ingredient {
 
     public ArrayList<StepIngredient> StepIngredients;
 
+    public Ingredient(){
+
+    }
+
     public Ingredient(JSONObject data){
         try {
             int Id = data.getInt("Id");
@@ -38,5 +42,10 @@ public class Ingredient {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public String toString() {
+        return Title;
     }
 }

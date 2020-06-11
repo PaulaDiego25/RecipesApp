@@ -5,12 +5,15 @@ import android.os.Bundle;
 import com.android.volley.VolleyError;
 import com.example.recipesbook.ui.recipe.RecipeFragment;
 import com.example.recipesbook.ui.step.StepFragment;
+import com.example.recipesbook.ui.versionList.VersionListFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -30,27 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     private AppBarConfiguration mAppBarConfiguration;
-    private Fragment fragment;
+    private String fragmentName = "Home";
+    private int recipeId;
 
-    /*@Override
-    public void changeFragment(int id){
-        FragmentTransaction ft;
-        switch (id){
-            case 1:
-                fragment = new RecipeFragment();
-                ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.nav_host_fragment, fragment);
-                ft.commit();
-                break;
-            case 2:
-                fragment = new StepFragment();
-                ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.nav_host_fragment, fragment);
-                ft.commit();
-                break;
-        }
 
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +70,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        switch (fragmentName.toUpperCase()){
+            case "STEP":
+                getMenuInflater().inflate(R.menu.step, menu);
+                break;
+            case "RECIPE":
+                getMenuInflater().inflate(R.menu.recipe, menu);
+                break;
+            case "VERSION":
+                getMenuInflater().inflate(R.menu.version, menu);
+                break;
+            case "HOME":
+                default:
+                getMenuInflater().inflate(R.menu.main, menu);
+        }
         return true;
     }
 
@@ -94,4 +93,61 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public void setActionBarTitle(int title) {
+        getSupportActionBar().setTitle(title);
+    }
+
+    public void setOptionsMenu(String title, int recipeId) {
+        this.fragmentName = title;
+        this.recipeId = recipeId;
+        invalidateOptionsMenu();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.new_step:
+                Fragment fragment = new StepFragment(recipeId);
+                FragmentManager fragmentManager = this.getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                return true;
+            case R.id.view_recipe:
+                fragment = new VersionListFragment(recipeId);
+                fragmentManager = this.getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                return true;
+            case R.id.new_version:
+                fragment = new RecipeFragment(recipeId);
+                fragmentManager = this.getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    /*@Override
+    public void onBackPressed(){
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            //Log.i("MainActivity", "popping backstack");
+            fm.popBackStack();
+        } else {
+            //Log.i("MainActivity", "nothing on backstack, calling super");
+            super.onBackPressed();
+        }
+    }*/
 }
+

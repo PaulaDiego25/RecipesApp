@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_favourite_recipes"
-        android:name="com.example.recipesbook.ui.recipeList.RecipeListFragment"
+        android:name="com.example.recipesbook.ui.favouriteRecipes.FavouriteRecipesFragment"
         android:label="@string/menu_favourite_recipes"
         tools:layout="@layout/fragment_recipe_list" />
 
@@ -37,9 +37,9 @@
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.example.recipesbook.ui.step.StepFragment"
+        android:name="com.example.recipesbook.ui.stepsList.StepListFragment"
         android:label="@string/menu_about"
-        tools:layout="@layout/fragment_step" />
+        tools:layout="@layout/fragment_steps_list" />
 
 
 </navigation>

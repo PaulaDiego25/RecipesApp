@@ -8,15 +8,19 @@ import java.util.ArrayList;
 
 public class StepIngredient {
     public int Id;
-    public double Quantity;
+    public String Quantity;
 
     public Ingredient  Ingredient;
     public Step Step;
 
+    public StepIngredient(){
+
+    }
+
     public StepIngredient(JSONObject data){
         try {
             int Id = data.getInt("Id");
-            int Quantity = data.getInt("Quantity");
+            String Quantity = data.getString("Quantity");
 
             this.Id = Id;
             this.Quantity = Quantity;
@@ -40,5 +44,17 @@ public class StepIngredient {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public String toString() {
+        if(Ingredient != null){
+            return Quantity + " de " + Ingredient.Title;
+        }else{
+            return Quantity;
+
+        }
+        //return Quantity + " de " ;
+
     }
 }

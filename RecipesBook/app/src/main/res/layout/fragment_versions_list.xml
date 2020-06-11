@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_alignParentBottom="true"
+       >
+
+        <Button
+            android:id="@+id/stepList_back_button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="101dp"
+            android:layout_height="31dp"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="16dp"
+
+            android:layout_marginLeft="16dp"
+            android:background="@color/colorSecondary"
+            android:text="@string/button_back"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/stepList_next_button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="101dp"
+            android:layout_height="31dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorPrimary"
+
+            android:text="@string/button_finish"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/list_versions"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/buttons" />
+
+</RelativeLayout>

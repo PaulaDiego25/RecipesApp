@@ -1,4 +1,6 @@
 package com.example.recipesbook.model;
+import androidx.annotation.Nullable;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,6 +13,7 @@ import java.util.Date;
 
 public class Recipe {
     public int Id;
+    public int FatherRecipeId;
     public String Title;
     public String Description;
     public double Time;
@@ -31,6 +34,10 @@ public class Recipe {
     public Recipe(JSONObject data){
         try {
             int Id = data.getInt("Id");
+            int FatherRecipeId = -1;
+            if(data.get("FKFatherRecipeId").toString().compareTo("null") != 0){
+                FatherRecipeId = data.getInt("FKFatherRecipeId");
+            }
             String Title = data.getString("Title");
             String Description = data.getString("Description");
             double Time = data.getDouble("Time");
@@ -45,16 +52,21 @@ public class Recipe {
             }*/
 
             this.Id = Id;
+            if(FatherRecipeId >=0){
+                this.FatherRecipeId = FatherRecipeId;
+            }
             this.Title = Title;
             this.Description = Description;
             this.Time = Time;
             this.Picture = Picture;
             this.IsPublic = IsPublic;
+            //this.Category = new Category(data.getJSONObject("FKCategory"));
             //this.CreationDate = creationDate;
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
 
     public static ArrayList<Recipe> ParseRecipeList(String response){
         ArrayList<Recipe> recipeList = new ArrayList<>();
@@ -71,5 +83,26 @@ public class Recipe {
             e.printStackTrace();
         }
         return recipeList;
+    }
+
+    public String ParseRecipeTime(){
+        int hours = 0;
+        int minutes = 0;
+        String result = "";
+        if(this.Time<=60){
+            result = this.Time + " minutos";
+        }else{
+            hours = (int) this.Time/60;
+            minutes = (int) this.Time%60;
+
+            result = hours +" horas y "+minutes+" minutos.";
+        }
+
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return Title;
     }
 }

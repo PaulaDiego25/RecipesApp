@@ -14,6 +14,10 @@ public class Step {
     public ArrayList<StepIngredient> StepIngredients;
     public Recipe Recipe;
 
+    public Step(){
+
+    }
+
     public Step(JSONObject data){
         try {
             int Id = data.getInt("Id");
@@ -32,7 +36,7 @@ public class Step {
         }
     }
 
-    public static ArrayList<Step> ParseCategoryList(String response){
+    public static ArrayList<Step> ParseStepList(String response){
         ArrayList<Step> list = new ArrayList<>();
 
         try {
@@ -47,5 +51,10 @@ public class Step {
             e.printStackTrace();
         }
         return list;
+    }
+
+    @Override
+    public String toString() {
+        return Order + "=>" + Title;
     }
 }

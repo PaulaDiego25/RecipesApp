@@ -35,6 +35,18 @@
     <string name="ingredient_name">Nombre</string>
     <string name="ingredient_quantity">Cantidad</string>
     <string name="ingredient_add">Añadir</string>
+    <string name="delete">Eliminar</string>
+    <string name="button_finish">Finalizar</string>
 
+    <string name="steps_list">Listado de pasos</string>
+    <string name="versions_list">Versiones</string>
+    <string name="new_step">Nuevo paso</string>
+    <string name="step">Paso</string>
+    <string name="recipes_list">Recetas</string>
+    <string name="recipe">Receta</string>
+    <string name="search_is_public">Receta pública</string>
+    <string name="search_time">Tiempo inferior a (en minutos)</string>
+    <string name="button_search">Buscar</string>
+    <string name="new_version">Nueva version</string>
 
 </resources>

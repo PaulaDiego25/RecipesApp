@@ -1,14 +1,12 @@
-package com.example.recipesbook.ui.home;
+package com.example.recipesbook.ui.favouriteRecipes;
 
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -18,33 +16,29 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
 import com.example.recipesbook.MainActivity;
 import com.example.recipesbook.R;
 import com.example.recipesbook.model.Recipe;
 import com.example.recipesbook.ui.ListView.RecipesAdapter;
-import com.example.recipesbook.ui.favouriteRecipes.FavouriteRecipesViewModel;
 import com.example.recipesbook.ui.recipe.RecipeFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.recipesbook.ui.stepsList.StepListFragment;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment {
+public class FavouriteRecipesFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private FavouriteRecipesViewModel recipeListViewModel;
     private ArrayList<Recipe> recipeArrayList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         container.removeAllViews();
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+        recipeListViewModel =
+                ViewModelProviders.of(this).get(FavouriteRecipesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_recipes_list, container, false);
-        homeViewModel.getRecipes(this.getContext());
+        recipeListViewModel.getRecipes(this.getContext());
 
-        homeViewModel.getText().observe(this, new Observer<ArrayList<Recipe>>() {
+        recipeListViewModel.getText().observe(this, new Observer<ArrayList<Recipe>>() {
             @Override
             public void onChanged(@Nullable ArrayList<Recipe> recipes) {
                 recipeArrayList = recipes;
@@ -79,7 +73,7 @@ public class HomeFragment extends Fragment {
     public void onResume(){
         super.onResume();
         ((MainActivity) getActivity())
-                .setActionBarTitle(R.string.menu_home);
+                .setActionBarTitle(R.string.menu_favourite_recipes);
 
     }
 }
